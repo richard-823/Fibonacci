@@ -1,0 +1,9 @@
+# Use this file (instead of the launcher script) to set additional options.
+# For now it's a placeholder file to remove error/warning during activator startup.
+
+
+# Set the java args
+# ...
+
+# Set the extra SBT options
+# ...

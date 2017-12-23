@@ -1,0 +1,42 @@
+===============================
+Run Web Service (on Windows PC)
+===============================
+
+1. Clone this repository to local disk, or download as a ZIP and then unzip it on local disk.
+2. Install Java 8 SDK, e.g. the latest one "jdk-8u152-windows-x64.exe" as of today; 
+   set JAVA_HOME to JDK installation directory, e.g. JAVA_HOME=C:\Program Files\Java\jdk1.8.0_152
+3. Open a command prompt, go the project directory ~\Fibonacci\, run command: activator run
+   NOTE: make sure the network is not blocked by any firewalls, otherwise it's possible to meet build failures.
+   The web service should be up and running (at port 9000 by default) after successful compliation. 
+
+4. Use Browser or Postman to send requests. Two forms are supported.
+
+(a) get <amount> (e.g. 10) fibonacci numbers with a simple list
+
+GET http://localhost:9000/api/1/fibonacci/numbers?amount=10
+
+return: [0,1,1,2,3,5,8,13,21,34]
+
+(b) get <amount> (e.g. 20) fibonacci numbers with pagination support
+
+GET http://localhost:9000/api/1/fibonacci/numbers?amount=20&offset=2&limit=4
+
+return:
+
+{
+	"amount":20,
+	"numbers":[1,2,3,5],
+	"previous":"http://localhost:9000/api/1/fibonacci/numbers?amount=20&offset=0&limit=4",
+	"next":"http://localhost:9000/api/1/fibonacci/numbers?amount=20&offset=6&limit=4"
+}
+
+
+===============================
+Test Automation for Web Service
+===============================
+
+1. Make sure the web service is up and running by following above instructions.
+2. Open another command prompt, go the project directory ~\Fibonacci\, run command: activator test
+   The automated test cases should be completed successfully. 
+   
+
