@@ -15,21 +15,22 @@ Run Web Service (on Windows PC)
 
 GET http://localhost:9000/api/1/fibonacci/numbers?amount=10
 
-return: [0,1,1,2,3,5,8,13,21,34]
+response: [0,1,1,2,3,5,8,13,21,34]
 
 (b) get <amount> (e.g. 20) fibonacci numbers with pagination support
 
-GET http://localhost:9000/api/1/fibonacci/numbers?amount=20&offset=2&limit=4
+GET http://localhost:9000/api/1/fibonacci/numbers?amount=20&offset=8&limit=4
 
-return:
+reponse:
 
 {
 	"amount":20,
-	"numbers":[1,2,3,5],
-	"previous":"http://localhost:9000/api/1/fibonacci/numbers?amount=20&offset=0&limit=4",
-	"next":"http://localhost:9000/api/1/fibonacci/numbers?amount=20&offset=6&limit=4"
+	"numbers":[21,34,55,89],
+	"previous":"http://localhost:9000/api/1/fibonacci/numbers?amount=20&offset=4&limit=4",
+	"next":"http://localhost:9000/api/1/fibonacci/numbers?amount=20&offset=12&limit=4"
 }
 
+5. Press CTRL + D keys to stop web service.
 
 ===============================
 Test Automation for Web Service
@@ -39,4 +40,10 @@ Test Automation for Web Service
 2. Open another command prompt, go the project directory ~\Fibonacci\, run command: activator test
    The automated test cases should be completed successfully. 
    
-
+===============================
+Import Project to IntelliJ IDEA
+===============================
+1. Download IntelliJ IDEA Community from https://www.jetbrains.com/idea/download/#section=windows
+2. In IntelliJ IDEA, select File -> New -> Project From Existing Sources ...
+3. Navigate to ~\Fibonacci\, choose "build.sb", click OK
+4. Configure Project JDK, keep other default options, click OK
